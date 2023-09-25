@@ -31,9 +31,9 @@ Auth::routes();
 
 
 
-Route::get('/home-usuario', [App\Http\Controllers\HomeController::class, 'usuario'])->name('home-usuario')->middleware('checkRole:usuario');
 
-Route::get('/shopping', [App\Http\Controllers\HomeController::class, 'usuario'])->name('home-usuario')->middleware('checkRole:usuario');
+
+
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/add-to-cart', [App\Http\Controllers\CartController::class, 'showAddToCartForm'])->name('add-to-cart');
@@ -41,7 +41,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cart/view', [App\Http\Controllers\CartController::class, 'view'])->name('cart.view');
 });
 
-
+Route::get('/home-usuario', [App\Http\Controllers\HomeController::class, 'usuario'])->name('home-usuario')->middleware('checkRole:usuario');
 Route::get('/admin-usuario', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin-usuario')->middleware('checkRole:admin');
 Route::get('/editor-usuario', [App\Http\Controllers\HomeController::class, 'editor'])->name('editor-usuario')->middleware('checkRole:editor');
 
